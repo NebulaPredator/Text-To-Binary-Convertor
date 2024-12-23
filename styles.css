@@ -1,146 +1,149 @@
 /* Global Styles */
 body {
-    background-color: #000000; /* Black background */
-    color: #00FF00; /* Green text */
-    font-family: "Courier New", Courier, monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
-    animation: backgroundAnimation 15s infinite linear;
+  --bg-color: #000; /* Black background */
+  --text-color: #00FF00; /* Green text */
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+  animation: backgroundAnimation 15s infinite linear;
 }
 
 /* Background Animation */
 @keyframes backgroundAnimation {
-    0% {
-        background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
-    }
-    50% {
-        background: radial-gradient(circle, rgba(0, 255, 0, 0.8) 0%, rgba(0, 255, 0, 0.2) 100%);
-    }
-    100% {
-        background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
-    }
+  0% {
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+  50% {
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.8) 0%, rgba(0, 255, 0, 0.2) 100%);
+  }
+  100% {
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
 }
 
 /* Header Styling */
 h1 {
-    font-size: 3em;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px #00FF00, 0 0 30px #00FF00, 0 0 50px #00FF00;
-    animation: glowText 2s infinite alternate;
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px var(--text-color), 0 0 30px var(--text-color), 0 0 50px var(--text-color);
+  animation: glowText 2s infinite alternate;
 }
 
 /* Glowing Text Animation */
 @keyframes glowText {
-    0% {
-        text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 80px #00FF00;
-    }
-    100% {
-        text-shadow: 0 0 20px #00FF00, 0 0 30px #00FF00, 0 0 60px #00FF00, 0 0 120px #00FF00;
-    }
+  0% {
+    text-shadow: 0 0 10px var(--text-color), 0 0 20px var(--text-color), 0 0 40px var(--text-color), 0 0 80px var(--text-color);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--text-color), 0 0 30px var(--text-color), 0 0 60px var(--text-color), 0 0 120px var(--text-color);
+  }
 }
 
 /* Input Fields */
 input[type="text"] {
-    background-color: #111111;
-    color: #00FF00;
-    border: 2px solid #00FF00;
-    padding: 12px;
-    margin: 10px;
-    width: 300px;
-    box-shadow: 0 0 10px #00FF00;
-    caret-color: #00FF00;
-    font-size: 1.2em;
-    border-radius: 10px;
-    text-align: center;
-    transition: all 0.3s ease;
-    transform: scale(1);
+  background-color: #111111;
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+  padding: 12px;
+  margin: 10px;
+  width: 300px;
+  box-shadow: 0 0 10px var(--text-color);
+  caret-color: var(--text-color);
+  font-size: 1.2em;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  transform: scale(1);
 }
 
 /* Input Focus Animation */
 input[type="text"]:focus {
-    outline: none;
-    border-color: #00FF00;
-    box-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 60px #00FF00;
-    transform: scale(1.05);
-    background-color: #222222;
+  outline: none;
+  border-color: var(--text-color);
+  box-shadow: 0 0 20px var(--text-color), 0 0 40px var(--text-color), 0 0 60px var(--text-color);
+  transform: scale(1.05);
+  background-color: #222222;
 }
 
 /* Button Styling */
 button {
-    background-color: #111111;
-    color: #00FF00;
-    border: 3px solid #00FF00;
-    padding: 15px 30px;
-    font-size: 1.1em;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 20px;
-    box-shadow: 0 0 20px #00FF00;
-    transition: all 0.3s ease;
-    animation: buttonPulse 1.5s infinite alternate;
+  background-color: #111111;
+  color: var(--text-color);
+  border: 3px solid var(--text-color);
+  padding: 15px 30px;
+  font-size: 1.1em;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--text-color);
+  transition: all 0.3s ease;
+  animation: buttonPulse 1.5s infinite alternate;
 }
 
 /* Glowing Button Pulse Animation */
 @keyframes buttonPulse {
-    0% {
-        box-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 80px #00FF00;
-    }
-    100% {
-        box-shadow: 0 0 40px #00FF00, 0 0 60px #00FF00, 0 0 120px #00FF00;
-    }
+  0% {
+    box-shadow: 0 0 20px var(--text-color), 0 0 40px var(--text-color), 0 0 80px var(--text-color);
+  }
+  100% {
+    box-shadow: 0 0 40px var(--text-color), 0 0 60px var(--text-color), 0 0 120px var(--text-color);
+  }
 }
 
 /* Button Hover Effects */
 button:hover {
-    background-color: #00FF00;
-    color: #000000;
-    transform: scale(1.1);
-    box-shadow: 0 0 40px #00FF00, 0 0 60px #00FF00, 0 0 100px #00FF00;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  transform: scale(1.1);
+  box-shadow: 0 0 40px var(--text-color), 0 0 60px var(--text-color), 0 0 100px var(--text-color);
 }
 
 /* Result Styling */
 #result {
-    font-size: 1.5em;
-    margin-top: 30px;
-    text-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00, 0 0 50px #00FF00;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-width: 90%;
-    overflow-wrap: break-word;
-    animation: resultGlow 3s infinite alternate;
+  font-size: 1.5em;
+  margin-top: 30px;
+  text-shadow: 0 0 15px var(--text-color), 0 0 25px var(--text-color), 0 0 50px var(--text-color);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 90%;
+  overflow-wrap: break-word;
+  animation: resultGlow 3s infinite alternate;
 }
 
 /* Result Glowing Effect */
 @keyframes resultGlow {
-    0% {
-        text-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 60px #00FF00;
-    }
-    100% {
-        text-shadow: 0 0 40px #00FF00, 0 0 80px #00FF00, 0 0 100px #00FF00;
-    }
+  0% {
+    text-shadow: 0 0 20px var(--text-color), 0 0 40px var(--text-color), 0 0 60px var(--text-color);
+  }
+  100% {
+    text-shadow: 0 0 40px var(--text-color), 0 0 80px var(--text-color), 0 0 100px var(--text-color);
+  }
 }
 
 /* Responsive Layout for Smaller Screens */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 2em;
-    }
-    input[type="text"] {
-        width: 250px;
-        font-size: 1em;
-    }
-    button {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
+  h1 {
+    font-size: 2em;
+  }
+  input[type="text"] {
+    width: 250px;
+    font-size: 1em;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
 }
