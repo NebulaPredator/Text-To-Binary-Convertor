@@ -1,51 +1,146 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Global Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f7fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+    background-color: #000000; /* Black background */
+    color: #00FF00; /* Green text */
+    font-family: "Courier New", Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+    animation: backgroundAnimation 15s infinite linear;
 }
 
-.container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+/* Background Animation */
+@keyframes backgroundAnimation {
+    0% {
+        background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+    }
+    50% {
+        background: radial-gradient(circle, rgba(0, 255, 0, 0.8) 0%, rgba(0, 255, 0, 0.2) 100%);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+    }
 }
 
+/* Header Styling */
 h1 {
-  color: #333;
-  margin-bottom: 20px;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px #00FF00, 0 0 30px #00FF00, 0 0 50px #00FF00;
+    animation: glowText 2s infinite alternate;
 }
 
-.converter label {
-  display: block;
-  margin-top: 15px;
-  font-size: 14px;
-  color: #555;
+/* Glowing Text Animation */
+@keyframes glowText {
+    0% {
+        text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 80px #00FF00;
+    }
+    100% {
+        text-shadow: 0 0 20px #00FF00, 0 0 30px #00FF00, 0 0 60px #00FF00, 0 0 120px #00FF00;
+    }
 }
 
-.converter input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
+/* Input Fields */
+input[type="text"] {
+    background-color: #111111;
+    color: #00FF00;
+    border: 2px solid #00FF00;
+    padding: 12px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px #00FF00;
+    caret-color: #00FF00;
+    font-size: 1.2em;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
 
-.converter input:focus {
-  border-color: #0056b3;
-  outline: none;
+/* Input Focus Animation */
+input[type="text"]:focus {
+    outline: none;
+    border-color: #00FF00;
+    box-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 60px #00FF00;
+    transform: scale(1.05);
+    background-color: #222222;
+}
+
+/* Button Styling */
+button {
+    background-color: #111111;
+    color: #00FF00;
+    border: 3px solid #00FF00;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00FF00;
+    transition: all 0.3s ease;
+    animation: buttonPulse 1.5s infinite alternate;
+}
+
+/* Glowing Button Pulse Animation */
+@keyframes buttonPulse {
+    0% {
+        box-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 80px #00FF00;
+    }
+    100% {
+        box-shadow: 0 0 40px #00FF00, 0 0 60px #00FF00, 0 0 120px #00FF00;
+    }
+}
+
+/* Button Hover Effects */
+button:hover {
+    background-color: #00FF00;
+    color: #000000;
+    transform: scale(1.1);
+    box-shadow: 0 0 40px #00FF00, 0 0 60px #00FF00, 0 0 100px #00FF00;
+}
+
+/* Result Styling */
+#result {
+    font-size: 1.5em;
+    margin-top: 30px;
+    text-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00, 0 0 50px #00FF00;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 90%;
+    overflow-wrap: break-word;
+    animation: resultGlow 3s infinite alternate;
+}
+
+/* Result Glowing Effect */
+@keyframes resultGlow {
+    0% {
+        text-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 60px #00FF00;
+    }
+    100% {
+        text-shadow: 0 0 40px #00FF00, 0 0 80px #00FF00, 0 0 100px #00FF00;
+    }
+}
+
+/* Responsive Layout for Smaller Screens */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    input[type="text"] {
+        width: 250px;
+        font-size: 1em;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
 }
