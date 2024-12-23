@@ -1,97 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>The Oracle - Binary Translator</title>
-<style>
-body {
-    background-color: #000000; /* Black background */
-    color: #00FF00; /* Green text */
-    font-family: "Courier New", Courier, monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-}
-
-h1 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
-}
-
-input[type="text"] {
-    background-color: #000000;
-    color: #00FF00;
-    border: 1px solid #00FF00;
-    padding: 10px;
-    margin: 10px;
-    width: 300px;
-    box-shadow: 0 0 10px #00FF00;
-    caret-color: #00FF00;
-}
-
-button {
-    background-color: #000000;
-    color: #00FF00;
-    border: 2px solid #00FF00;
-    padding: 10px 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-    box-shadow: 0 0 15px #00FF00;
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    background-color: #00FF00;
-    color: #000000;
-    box-shadow: 0 0 25px #00FF00, 0 0 50px #00FF00;
-}
-
-#result {
-    font-size: 1.2em;
-    margin-top: 20px;
-    text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Oracle - Binary Translator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>The Oracle - Binary Translator</h1>
+    <div class="container">
+        <h1>The Oracle - Binary Translator</h1>
+        <input type="text" id="input" placeholder="Enter text or binary..." />
+        <button onclick="translate()">Translate</button>
+        <p id="result"></p>
+    </div>
 
-<input type="text" id="input" placeholder="Enter text or binary...">
-<button onclick="translate()">Translate</button>
-<p id="result"></p>
-
-<script>
-function translate() {
-    const input = document.getElementById("input").value.trim();
-    let output = "";
-
-    if (/^[01]+$/.test(input.replace(/\s+/g, ""))) {
-        // Binary to English
-        try {
-            output = String.fromCharCode(...input.match(/.{1,8}/g).map(bin => parseInt(bin, 2)));
-        } catch (error) {
-            output = "Invalid binary input.";
-        }
-    } else {
-        // English to Binary
-        for (let i = 0; i < input.length; i++) {
-            output += input.charCodeAt(i).toString(2).padStart(8, '0') + " ";
-        }
-    }
-
-    document.getElementById("result").innerText = output;
-}
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
