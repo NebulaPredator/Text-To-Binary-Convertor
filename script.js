@@ -20,6 +20,9 @@ function translate() {
             .join(" ");
     }
 
-    // Display the result
+    // Display the result in the <p id="result">
     document.getElementById("result").innerText = output;
 }
+
+// Add an event listener to the button to call translate when clicked
+document.getElementById("translateButton").addEventListener("click", translate);
