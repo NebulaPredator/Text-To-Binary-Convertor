@@ -10,15 +10,25 @@
   <div class="container">
     <h1 class="neon-text">The Binary Translator</h1> 
     <div class="converter">
+      
+      <!-- Text input section -->
       <div class="input-group">
         <label for="text" class="label-glow">Text:</label>
-        <input type="text" id="text" placeholder="Enter text" oninput="convertFromText()" class="input-field">
+        <div class="input-with-button">
+          <input type="text" id="text" placeholder="Enter text" oninput="convertFromText()" class="input-field">
+          <button id="text-copy-btn" class="copy-btn" onclick="copyText('text')">Copy</button>
+        </div>
       </div>
 
+      <!-- Binary input section -->
       <div class="input-group">
         <label for="binaryText" class="label-glow">Binary (Text):</label>
-        <input type="text" id="binaryText" placeholder="Enter binary text" oninput="convertFromBinaryText()" class="input-field">
+        <div class="input-with-button">
+          <input type="text" id="binaryText" placeholder="Enter binary text" oninput="convertFromBinaryText()" class="input-field">
+          <button id="binaryText-copy-btn" class="copy-btn" onclick="copyText('binaryText')">Copy</button>
+        </div>
       </div>
+      
     </div>
   </div>
   <script src="script.js"></script>
