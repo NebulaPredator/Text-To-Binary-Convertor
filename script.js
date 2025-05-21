@@ -56,3 +56,26 @@ function convertFromBinaryText() {
 
 // Add an event listener to the button to call translate when clicked
 document.getElementById("translateButton").addEventListener("click", translate);
+
+/* ---------- Copy-to-clipboard helper ---------- */
+function copyText(targetId) {
+  const elem   = document.getElementById(targetId);
+  const toCopy = elem.value !== undefined ? elem.value : elem.innerText;
+
+  if (!toCopy) {
+    alert("Nothing to copy!");
+    return;
+  }
+
+  navigator.clipboard.writeText(toCopy).then(() => {
+    // quick visual confirmation
+    const btn       = document.getElementById(`${targetId}-copy-btn`);
+    const original  = btn.textContent;
+    btn.textContent = "Copied!";
+    setTimeout(() => (btn.textContent = original), 1500);
+  }).catch(err => {
+    console.error("Copy failed:", err);
+    alert("Copy failed – see console for details.");
+  });
+}
+
